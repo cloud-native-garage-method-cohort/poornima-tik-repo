@@ -1,0 +1,11 @@
+apiVersion: tekton.dev/v1beta1
+kind: PipelineRun
+metadata:
+  generateName: poornima-tik-pipeline-run
+spec:
+  pipelineRef:
+    name: poornima-tik-pipeline
+  workspaces:
+    - name: shared-data
+      persistentvolumeclaim:
+        claimName: poornima-tik-pvc
