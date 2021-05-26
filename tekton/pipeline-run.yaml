@@ -3,9 +3,10 @@ kind: PipelineRun
 metadata:
   generateName: poornima-tik-pipeline-run
 spec:
+  serviceAccountName: build-bot
   pipelineRef:
     name: poornima-tik-pipeline
   workspaces:
     - name: shared-data
       persistentvolumeclaim:
-        claimName: poornima-tik-pvc
+        claimName: poornima-tik-pvc-new

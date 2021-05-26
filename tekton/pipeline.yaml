@@ -12,7 +12,7 @@ spec:
   params:
     - name: image-repo
       type: string
-      default: https://github.com/cloud-native-garage-method-cohort/poornima-tik-repo
+      default: quay.io/user/ptrikkur
   tasks:
     - name: clone-repository
       params:
@@ -29,7 +29,7 @@ spec:
         - clone-repository
       params:
         - name: IMAGE
-          value: "$(params.image-repo)/poornima-tik-app:$(tasks.clone-repository.results.commit)"
+          value: "$(params.image-repo):$(tasks.clone-repository.results.commit)"
       taskRef:
         kind: Task
         name: buildah
